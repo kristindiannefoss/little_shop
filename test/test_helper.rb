@@ -1,15 +1,27 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'mocha/setup'
 require 'capybara/rails'
 require 'database_cleaner'
-require 'mocha/setup'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-  
-  # Add more helper methods to be used by all tests here...
+  def create_categories(num = 1)
+    num.times do
+      Category.create(name: Faker::Commerce.department(1))
+    end
+  end
+
+  def create_items(num = 1)
+    num.times do
+      Item.create(
+      name: Faker::Commerce.product_name,
+      description: Faker::Hipster.sentence(6),
+      image_url: Faker::Placeholdit.image("150x150"),
+      price: Faker::Commerce.price,
+      category_id: Category.all.sample.id)
+    end
+  end
 end
 
 class ActionDispatch::IntegrationTest
