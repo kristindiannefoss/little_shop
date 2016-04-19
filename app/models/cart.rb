@@ -17,4 +17,13 @@ class Cart
   def count_of(item_id)
     contents[item_id.to_s]
   end
+
+  def total_price
+    contents.map do |id, quantity|
+      [Item.find(id.to_i), quantity]
+    end.map do |item, quantity|
+      item.price * quantity
+    end.reduce(:+)
+  end
+
 end

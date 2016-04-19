@@ -12,6 +12,6 @@ Cart: <%= @cart.count_all %> <%= link_to "View My Cart", cart_path %>
 
 <% flash.each do |type, message| %>
   <%= content_tag :div, message, class: type %>
-  <% end %>
+<% end %>
 </body>
 </html>
