@@ -9,9 +9,10 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @cart = session[:cart]
-    # @cart_contents = cart.map { |id,quantity| [Item.find(id.to_i), quantity] }
-    byebug
+    cart = session[:cart]
+    @cart_contents = cart.map { |id,quantity| [Item.find(id.to_i), quantity] }
+    
+    # byebug
 
   end
 

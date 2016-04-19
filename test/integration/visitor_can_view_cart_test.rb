@@ -14,23 +14,17 @@ class VisitorCanViewCartTest < ActionDispatch::IntegrationTest
     click_button "Add to Cart"
     click_button "Add to Cart"
     click_link "View My Cart"
-
     assert_equal '/cart', current_path
 
     expected = "http://ecommerce.wiosid.com/uploads/user/StegglesChickenNuggetsDinoSnacks02.jpg"
     assert_equal expected, item.image_url
 
-    within("#item1") do
-      assert page.has_content? "Dino Snackies"
-      assert page.has_content? "Better than goldfish"
-      assert page.has_content? "10.00"
-    end
+    save_and_open_page
+    assert page.has_content? "Dino Snackies"
+    assert page.has_content? "Better than goldfish"
+    assert page.has_content? "$10.00"
+    assert page.has_content? "Quantity: 2"
 
-    within("#item2") do
-      assert page.has_content? "Dino Snackies"
-      assert page.has_content? "Better than goldfish"
-      assert page.has_content? "10.00"
-    end
 
     assert page.has_content? "Total: $20.00"
 

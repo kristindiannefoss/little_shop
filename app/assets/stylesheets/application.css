@@ -14,4 +14,6 @@
  *= require_self
  */
 
- img {max-width: 150px}
+img {max-width: 150px}
+
+.thumbnail {max-width: 100px}
