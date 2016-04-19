@@ -19,7 +19,6 @@ class VisitorCanViewCartTest < ActionDispatch::IntegrationTest
     expected = "http://ecommerce.wiosid.com/uploads/user/StegglesChickenNuggetsDinoSnacks02.jpg"
     assert_equal expected, item.image_url
 
-    save_and_open_page
     assert page.has_content? "Dino Snackies"
     assert page.has_content? "Better than goldfish"
     assert page.has_content? "$10.00"
