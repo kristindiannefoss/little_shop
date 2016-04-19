@@ -19,11 +19,15 @@ class Cart
   end
 
   def total_price
-    contents.map do |id, quantity|
-      [Item.find(id.to_i), quantity]
-    end.map do |item, quantity|
-      item.price * quantity
-    end.reduce(:+)
+    if contents.empty?
+      return 0
+    else
+      contents.map do |id, quantity|
+        [Item.find(id.to_i), quantity]
+      end.map do |item, quantity|
+        item.price * quantity
+      end.reduce(:+)
+    end
   end
 
 end
