@@ -2,6 +2,6 @@
 
 <div class="<%= @category.name %>">
 <% @category.items.each do |item| %>
-<%= render :partial => 'shared/item', locals: {item: item} %>
+  <%= render partial: 'shared/item', locals: {item: item} %>
 <% end %>
 </div>
