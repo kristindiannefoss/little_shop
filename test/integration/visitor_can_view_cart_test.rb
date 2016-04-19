@@ -23,18 +23,6 @@ class VisitorCanViewCartTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Better than goldfish"
     assert page.has_content? "$10.00"
     assert page.has_content? "Quantity: 2"
-
-
     assert page.has_content? "Total: $20.00"
-
-    # And I click a link or button to view cart
-    # And my current path should be /cart
-
-    # And I should see a small image, title, description and price
-    #for the item I just added
-    # And there should be a total price for the cart that should be
-    #the sum of all items in the cart
-
-    assert true
   end
 end

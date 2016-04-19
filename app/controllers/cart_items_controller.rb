@@ -9,11 +9,16 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    cart = session[:cart]
-    @cart_contents = cart.map { |id,quantity| [Item.find(id.to_i), quantity] }
-    
-    # byebug
+    @items = @cart.contents.map do |id, quantity|
+      [Item.find(id.to_i), quantity]
+    end
+  end
 
+  def destroy
+    item = Item.find(params[:id])
+    @cart.contents.delete(params[:id])
+    flash[:notice] = "Successfully removed <a href=\"/items/#{item.id}\">#{item.name}</a>!"
+    redirect_to cart_path
   end
 
 end
