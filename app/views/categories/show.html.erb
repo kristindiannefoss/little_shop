@@ -2,13 +2,6 @@
 
 <div class="<%= @category.name %>">
 <% @category.items.each do |item| %>
-  <ul>
-    <li><%= item.name %></li>
-    <ul>
-      <li><%= item.description %></li>
-      <li><%= image_tag item.image_url %></li>
-      <li>$<%= item.price %></li>
-    </ul>
-  </ul>
+<%= render :partial => 'shared/item', locals: {item: item} %>
 <% end %>
 </div>

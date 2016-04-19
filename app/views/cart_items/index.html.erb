@@ -1,0 +1,14 @@
+<h1>Cart</h1>
+
+<% @cart_contents.each do |item, quantity| %>
+  <ul>
+    <li><%= item.name %></li>
+    <ul>
+      <li><%= image_tag item.image_url, class:"thumbnail" %></li>
+      <li>Description: <%= item.description %></li>
+      <li>Price: <%= format_price(item.price) %></li>
+      <li>Quantity: <%= quantity %></li>
+    </ul>
+  </ul>
+<% end %>
+Total: <%=  format_price(total_price(@cart_contents)) %>
