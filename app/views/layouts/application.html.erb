@@ -14,12 +14,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
 
-<% flash.each do |type, message| %>
-  <%= content_tag :div, message, class: type %>
+  <ul>
+    <li>  <% if current_user %>
+      <%= link_to "Logout", logout_path, method: :delete%>
+      <% else %>
+      <%= link_to "Login", login_path %>
+      <% end %></li>
+    </ul>
+
+  <% flash.each do |type, message| %>
+    <%= content_tag :div, message.html_safe, class: type %>
   <% end %>
 
-  <!-- <h2> Cart: <%#= @cart.count_all %> <%= link_to "View My Cart", cart_path %></h2> -->
+Cart: <%= @cart.count_all %> <%= link_to "View My Cart", cart_path %>
+
+<%= yield %>
+
 </body>
 </html>

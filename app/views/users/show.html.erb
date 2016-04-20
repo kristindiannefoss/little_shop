@@ -1,0 +1,7 @@
+<h1> <%= @user.first_name %>'s Profile</h1>
+
+<ul>
+  <h2>Name:</h2><%= @user.first_name %> <%= @user.last_name %>
+  <h2>Email:</h2> <%= @user.email %>
+  <h2>Address: </h2><%= @user.city %>, <%= @user.state %>  <%= @user.zipcode %>
+</ul>
