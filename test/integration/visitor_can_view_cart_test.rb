@@ -22,7 +22,7 @@ class VisitorCanViewCartTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Dino Snackies"
     assert page.has_content? "Better than goldfish"
     assert page.has_content? "$10.00"
-    assert page.has_content? "Quantity: 2"
+    assert_equal "2", page.find_field("Quantity").value
     assert page.has_content? "Total: $20.00"
   end
 end

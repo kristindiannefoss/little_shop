@@ -22,6 +22,14 @@ class ActiveSupport::TestCase
       category_id: Category.all.sample.id)
     end
   end
+
+  def create_orders(num = 1)
+    num.times do
+      Order.create(
+      user_id: User.all.sample.id
+      )
+    end
+  end
 end
 
 class ActionDispatch::IntegrationTest
