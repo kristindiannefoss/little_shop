@@ -6,8 +6,4 @@ class OrdersController < ApplicationController
     @orders = @user.orders
 
   end
-
-private
-
-
 end
