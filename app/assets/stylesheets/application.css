@@ -50,8 +50,39 @@ div.splash {
 }
 
 p.huge {
-  font-size: 50px;
+  font-size: 150px;
+  font-family: 'Amatic SC';
   color: white;
+  text-shadow: 4px 4px 4px #aaa;
+  font-effect: emboss;
+  line-height: 90%
+}
+
+.med {
+  font-size: 20px;
+  font-family: 'Raleway';
+  color: black;
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+.float-button {
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*text-align: center;*/
+    /*float: center;*/
+    padding-top: 300px;
+    top: 500px;
+    z-index: 1;
+}
+
+.btn-primary.gradient {
+	background: -moz-linear-gradient(top,  #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#33a6cc), color-stop(50%,#0099cc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* IE10+ */
+	background: linear-gradient(to bottom,  #33a6cc 50%,#0099cc 50%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33a6cc', endColorstr='#0099cc',GradientType=0 ); /* IE6-9 */
 }
 
 h2 {
