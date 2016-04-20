@@ -30,4 +30,9 @@ class Cart
     end
   end
 
+  def subtotal(item_id)
+    # byebug
+
+    count_of(item_id) * Item.find(item_id).price
+  end
 end

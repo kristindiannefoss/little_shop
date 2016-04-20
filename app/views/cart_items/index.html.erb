@@ -6,9 +6,18 @@
       <ul>
         <li><%= image_tag item.image_url, class:"thumbnail" %></li>
         <li>Description: <%= item.description %></li>
-        <li>Price: <%= number_to_currency(item.price) %></li>
-        <li>Quantity: <%= quantity %></li>
+        <li>Unit Price: <%= number_to_currency(item.price) %></li>
+        <li>
+
+          <%= form_for :session, url: cart_item_path(:id, {item_id: item.id}), html: {method: "patch"} do |f| %>
+
+            <%= f.label :quantity, "Quantity" %>
+            <%= f.number_field :quantity, value: quantity, min: 0 %>
+          <%= f.submit "Update Cart" %>
+          <% end %>
+          </li>
         <li><%= link_to "Remove", cart_item_path(item), method: :delete %></li>
+        <li>Subtotal: <%= number_to_currency(@cart.subtotal(item.id)) %>
       </ul>
     </ul>
   <% end %>
