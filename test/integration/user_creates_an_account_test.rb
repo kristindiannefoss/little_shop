@@ -28,7 +28,7 @@ class UserCreatesAnAccountTest < ActionDispatch::IntegrationTest
     click_on "Create Account"
 
     assert "/dashboard", current_path
-    # save_and_open_page
+
     assert page.has_content?("Logged in as john dinosaur")
     assert page.has_content?("fake@gmail.com")
     assert page.has_content?("Denver")

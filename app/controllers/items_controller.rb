@@ -4,5 +4,6 @@ class ItemsController < ApplicationController
   end
 
   def static
+
   end
 end

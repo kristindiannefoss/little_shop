@@ -6,10 +6,18 @@ class VisitorAddsItemsToCartTestTest < ActionDispatch::IntegrationTest
     create_items(4)
 
     visit '/items'
-    assert page.has_content? "Cart: 0"
+    
+    within ".navbar" do
+      assert page.has_content? "Cart"
+      assert page.has_content? "0"
+    end
     first(:button, "Add to Cart").click
 
     assert page.has_content? "Successfully added to cart!"
-    assert page.has_content? "Cart: 1"
+
+    within ".navbar" do
+      assert page.has_content? "Cart"
+      assert page.has_content? "1"
+    end
   end
 end
