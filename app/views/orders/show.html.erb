@@ -1,8 +1,8 @@
 <h1>Order Number:<%= @order.id %></h1>
 <h4>Order Date:<%= @order.created_at %></h4>
-<h4>Order Status:<%= @order.status %>:
-  <% if @order.status == "cancelled" || "completed" %>
-  <%= @order.updated_at %>
+<h4>Order Status: <%= @order.status %>
+  <% if @order.status == "cancelled" || @order.status == "completed" %>
+    <%= @order.updated_at %>
   <% end %>
 </h4>
 
@@ -39,7 +39,7 @@
     <% end %>
     <tr>
       <td colspan=4>
-        Order Total: <%#= number_to_currency(@order.total) %>
+        Order Total: <%= number_to_currency(@order.total_price) %>
       </td>
 
     </tr>

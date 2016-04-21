@@ -5,6 +5,6 @@ class Order < ActiveRecord::Base
 
 
   def total_price
-    order_items.map{ |oi| }
+    order_items.map{ |oi| oi.subtotal }.sum
   end
 end
