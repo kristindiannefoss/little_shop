@@ -23,7 +23,30 @@ class ActiveSupport::TestCase
       retired: retired)
     end
   end
+
+  def create_orders(num = 1, user_id = nil, status = nil)
+    @statuses = ["ordered", "paid", "completed", "cancelled"]
+    num.times do
+      Order.create(
+      user_id: user_id || User.all.sample.id,
+      status: status || @statuses.sample
+      )
+    end
+  end
 end
+
+  def create_user(num = 1)
+    num.times do
+      User.create(first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.safe_email,
+      # address: "",
+      city: Faker::Address.city,
+      state: Faker::Address.state_abbr,
+      zipcode: Faker::Address.zip_code,
+      password: "password")
+    end
+  end
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL

@@ -1,0 +1,8 @@
+<h1>Orders Index</h1>
+
+  <% @orders.each do |order| %>
+  <ul>
+    <li>Order Number: <%= order.id %></li>
+    <li><%= link_to "View Order Details", order_path(order) %></li>
+  </ul>
+  <% end %>

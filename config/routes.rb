@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
 
   resources :users, only: [:new, :create]
+
   resources :cart_items, only: [:create, :destroy, :update, :edit]
+
+  resources :orders, only: [:index, :show]
+
   root to: 'items#static'
 
   get '/dashboard', to: 'users#show'
