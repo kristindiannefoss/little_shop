@@ -9,23 +9,20 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @items = @cart.contents.map do |id, quantity|
-      [Item.find(id.to_i), quantity]
-    end
+    @items = @cart.mapped_values
   end
 
   def update
-    @cart.contents[params["item_id"]] = params["session"]["quantity"].to_i
+    qty = params[:session][:quantity].to_i
+    @cart.update(params[:item_id], qty)
     redirect_to cart_path
   end
 
   def destroy
     item = Item.find(params[:id])
-    @cart.contents.delete(params[:id])
+    @cart.remove_item(params[:id])
     flash[:notice] = "Successfully removed <a href=\"/items/#{item.id}\">#{item.name}</a>!"
     redirect_to cart_path
   end
-
-  
 
 end

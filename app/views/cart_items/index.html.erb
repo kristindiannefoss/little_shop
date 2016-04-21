@@ -1,23 +1,23 @@
 <h1>Cart</h1>
 <div class="cart">
-  <% @items.each do |item, quantity| %>
+  <% @items.each do |cart_item| %>
     <ul>
-      <li><%= item.name %></li>
+      <li><%= cart_item.item.name %></li>
       <ul>
-        <li><%= image_tag item.image_url, class:"thumbnail" %></li>
-        <li>Description: <%= item.description %></li>
-        <li>Unit Price: <%= number_to_currency(item.price) %></li>
+        <li><%= image_tag cart_item.item.image_url, class:"thumbnail" %></li>
+        <li>Description: <%= cart_item.item.description %></li>
+        <li>Unit Price: <%= number_to_currency(cart_item.item.price) %></li>
         <li>
 
-          <%= form_for :session, url: cart_item_path(:id, {item_id: item.id}), html: {method: "patch"} do |f| %>
+          <%= form_for :session, url: cart_item_path(:id, {item_id: cart_item.item.id}), html: {method: "patch"} do |f| %>
 
             <%= f.label :quantity, "Quantity" %>
-            <%= f.number_field :quantity, value: quantity, min: 0 %>
+            <%= f.number_field :quantity, value: cart_item.quantity, min: 1 %>
           <%= f.submit "Update Cart" %>
           <% end %>
           </li>
-        <li><%= link_to "Remove", cart_item_path(item), method: :delete %></li>
-        <li>Subtotal: <%= number_to_currency(@cart.subtotal(item.id)) %>
+        <li><%= link_to "Remove", cart_item_path(cart_item.item), method: :delete %></li>
+        <li>Subtotal: <%= number_to_currency(cart_item.subtotal) %>
       </ul>
     </ul>
   <% end %>
