@@ -3,7 +3,11 @@
   <ul>
     <li><%= item.description %></li>
     <li><%= image_tag item.image_url %></li>
-    <li>$<%= item.price %></li>
-    <li><%= button_to "Add to Cart", cart_items_path(item_id: item.id)%></li>
+    <li><%= number_to_currency(item.price) %></li>
+    <li><%= button_to "#{item.disabled_item?[0]}",
+            cart_items_path(item_id: item.id),
+            item.disabled_item?[1] %>
+    </li>
+
   </ul>
 </ul>
