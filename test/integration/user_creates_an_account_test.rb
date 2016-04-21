@@ -16,13 +16,13 @@ class UserCreatesAnAccountTest < ActionDispatch::IntegrationTest
 
     click_on "Create Account"
 
-    fill_in "First_name", with: user_info[:first_name]
-    fill_in "Last_name", with: user_info[:last_name]
+    fill_in "First Name", with: user_info[:first_name]
+    fill_in "Last Name", with: user_info[:last_name]
     fill_in "Password", with: user_info[:password]
-    fill_in "Email", with: user_info[:email]
+    fill_in "E-Mail", with: user_info[:email]
     fill_in "City", with: user_info[:city]
     fill_in "State", with: user_info[:state]
-    fill_in "Zipcode", with: user_info[:zipcode]
+    fill_in "Zip Code", with: user_info[:zipcode]
 
 
     click_on "Create Account"

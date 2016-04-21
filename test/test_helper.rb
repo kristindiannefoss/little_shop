@@ -12,14 +12,15 @@ class ActiveSupport::TestCase
     end
   end
 
-  def create_items(num = 1)
+  def create_items(num = 1, retired = false)
     num.times do
       Item.create(
       name: Faker::Commerce.product_name,
       description: Faker::Hipster.sentence(6),
       image_url: Faker::Placeholdit.image("150x150"),
       price: Faker::Commerce.price,
-      category_id: Category.all.sample.id)
+      category_id: Category.all.sample.id,
+      retired: retired)
     end
   end
 
