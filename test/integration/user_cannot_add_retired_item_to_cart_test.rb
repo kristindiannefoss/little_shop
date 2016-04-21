@@ -6,7 +6,6 @@ class UserCannotAddRetiredItemToCartTest < ActionDispatch::IntegrationTest
     create_items(1, true)
     item = Item.first
     visit item_path(item)
-    save_and_open_page
     assert page.has_button? "Item Retired", disabled: true
   end
 end
