@@ -21,19 +21,19 @@
         Subtotal
       </td>
     </th>
-    <% @order.items.each do |item| %>
+    <% @order_items.each do |order_item| %>
       <tr>
         <td>
-          <%= item.name %>
+          <%= link_to order_item.item.name, item_path(order_item.item) %>
         </td>
         <td>
-          number
+          <%= order_item.quantity %>
         </td>
         <td>
-          <%= item.price %>
+          <%= order_item.item.price %>
         </td>
         <td>
-          subtotal
+          <%= order_item.subtotal %>
         </td>
       </tr>
     <% end %>
