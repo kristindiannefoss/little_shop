@@ -23,10 +23,12 @@ class ActiveSupport::TestCase
     end
   end
 
-  def create_orders(num = 1, user_id)
+  def create_orders(num = 1, user_id = nil, status = nil)
+    @statuses = ["ordered", "paid", "completed", "cancelled"]
     num.times do
       Order.create(
-      user_id: user_id || User.all.sample.id
+      user_id: user_id || User.all.sample.id,
+      status: status || @statuses.sample
       )
     end
   end
