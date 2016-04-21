@@ -91,3 +91,7 @@ h2 {
    left: 0;
    width: 100%;
 }
+
+.custom {
+  width: 178px !important;
+}
