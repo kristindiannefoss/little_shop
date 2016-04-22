@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :show]
 
-  root to: 'items#static'
+  root to: 'pages#splash'
 
   get '/dashboard', to: 'users#show'
 

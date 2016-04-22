@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -24,7 +25,6 @@
 
 <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-
 <head>
   <title>LittleShop</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -32,7 +32,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "shared/othernav" %>
+  <%= render "shared/othernav" unless @disable_nav%>
 
 
   <% flash.each do |type, message| %>
