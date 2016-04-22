@@ -1,0 +1,4 @@
+class ItemPresenter < SimpleDelegator
+
+  
+end

@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  attr_accessor :retired
   belongs_to :category
 
   has_many :order_items
