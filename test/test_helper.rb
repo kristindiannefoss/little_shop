@@ -12,7 +12,7 @@ class ActiveSupport::TestCase
     end
   end
 
-  def create_items(num = 1, retired = false)
+  def create_items(num = 1, retired)
     num.times do
       Item.create(
       name: Faker::Commerce.product_name,
