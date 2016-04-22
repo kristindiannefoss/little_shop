@@ -5,7 +5,6 @@ class UserSeesAHomepageTest < ActionDispatch::IntegrationTest
     visit root_path
 
     assert page.has_content? "NachomomsPaleo"
-    assert page.has_content? "Shop"
-    assert page.has_content? "Login"
+    assert page.has_link? "Shop"
   end
 end
