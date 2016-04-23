@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
+    session.delete :user_id
     redirect_to items_path
   end
 
