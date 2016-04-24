@@ -42,8 +42,5 @@ class UserCanCheckoutTest < ActionDispatch::IntegrationTest
     assert page.has_content? item.subtotal
     assert page.has_content? order.total_price
 
-
   end
-
-  # Background: An existing user and a cart with items
 end

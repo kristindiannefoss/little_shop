@@ -15,5 +15,10 @@ Rails.application.routes.draw do
   get "/cart", to: "cart_items#index"
   get "/:category", to: "categories#show"
   get "/*page", to: "errors#not_found"
+  get "/admin/dashboard", to: "admin/users#show"
 
+  namespace "admin" do
+    resources :items, only: [:index, :show]
+    resources :users, only: [:show]
+  end
 end

@@ -15,7 +15,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+        <% if current_admin? %>
+        <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+
+        <% else %>
         <li><%= link_to "Shop", items_path %></li>
+        <% end %>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -37,6 +42,13 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
+
+        <% if current_admin? %>
+          <li><%= link_to "Items", admin_items_path %></li>
+
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+
           <% if current_user %>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
           <% else %>
@@ -45,9 +57,10 @@
             <li><%= link_to "Create Account to Checkout", new_user_path %></li>
           <% end %>
 
+        <% end %>
         </li>
         <li><a class="btn btn-default btn-lg" href="/cart" role="button">Cart<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <%= @cart.count_all %></a></li>
-        
+
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
