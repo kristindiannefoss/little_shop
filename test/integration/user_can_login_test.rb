@@ -1,4 +1,4 @@
-require 'test_helper'
+  require 'test_helper'
 
 class UserCanLoginTest < ActionDispatch::IntegrationTest
   test "user can login with valid credentials" do
@@ -7,8 +7,8 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     visit '/login'
     fill_in "E-Mail", with: user.email
     fill_in "Password", with: "password"
-
     click_button "Log in"
+
     assert_equal "/dashboard", current_path
     assert page.has_content? "Logged in as #{user.first_name}"
     assert page.has_content? user.email
