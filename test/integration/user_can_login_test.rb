@@ -9,7 +9,7 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     fill_in "Password", with: "password"
 
     click_button "Log in"
-    assert_equal "/dashboard", current_path
+    assert_equal "/cart", current_path
     assert page.has_content? "Logged in as #{user.first_name}"
     assert page.has_content? user.email
     assert page.has_content? user.city

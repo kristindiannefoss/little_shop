@@ -13,7 +13,7 @@ class VisitorCanViewCartTest < ActionDispatch::IntegrationTest
     visit '/items'
     click_button "Add to Cart"
     click_button "Add to Cart"
-    click_link "View My Cart"
+    click_link "Cart"
     assert_equal '/cart', current_path
 
     expected = "http://ecommerce.wiosid.com/uploads/user/StegglesChickenNuggetsDinoSnacks02.jpg"
