@@ -2,7 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_cart
 
-helper_method :current_user
+
+  helper_method :current_user, :set_redirect
+
+  def set_redirect
+    session[:redirect] =  request.referrer
+    if session[:redirect].nil?
+      session[:redirect] = dashboard_path
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

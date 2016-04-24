@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    set_redirect
   end
 
   def create
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in as #{user.first_name}"
-      redirect_to cart_path
+      redirect_to session[:redirect]
     else
       flash.now[:error] = "Invalid Credentials"
       render :new
