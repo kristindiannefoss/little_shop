@@ -8,7 +8,13 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in as #{user.first_name}"
-      redirect_to cart_path
+
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to cart_path
+      end
+      
     else
       flash.now[:error] = "Invalid Credentials"
       render :new
