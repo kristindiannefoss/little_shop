@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/cart", to: "cart_items#index"
   get "/:category", to: "categories#show"
-  get "/*page", to: "errors#not_found"
   get "/admin/dashboard", to: "admin/users#show"
+  get "/*page", to: "errors#not_found"
 
   namespace "admin" do
     resources :items, only: [:index, :show]

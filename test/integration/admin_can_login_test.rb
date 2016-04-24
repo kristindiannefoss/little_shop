@@ -11,7 +11,7 @@ class AdminCanLoginTest < ActionDispatch::IntegrationTest
       fill_in "E-Mail", with: admin.email
       fill_in "Password", with: "password"
       click_on "Log in"
-
+save_and_open_page
       assert page.has_content?("Admin Dashboard")
   end
 
