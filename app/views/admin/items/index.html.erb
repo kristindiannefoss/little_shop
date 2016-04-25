@@ -11,11 +11,14 @@
   </tr>
   <% @items.each do |item| %>
   <tr>
+<div class="item<%= item.id %>"
     <td><%= link_to item.name, admin_item_path(item) %></td>
     <td><%= item.description %></td>
     <td><%= image_tag item.image_url %></td>
     <td><%= item.price %></td>
+    <td><%= item.retired %></td>
     <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
   </tr>
+</div>
     <% end %>
 </table>

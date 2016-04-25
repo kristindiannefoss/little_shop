@@ -24,10 +24,20 @@ class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
     assert page.has_content?
 
     assert page.has_content? "All Items"
-    assert page.has_content? item1.name
-    assert page.has_content? item1.description
-    assert page.has_content? item2.name
-    assert page.has_content? item2.description
+
+    within ".item1" do
+      assert page.has_content? item1.name
+      assert page.has_content? item1.description
+      assert page.has_content? item1.retired
+      assert page.has_content? "Edit"
+    end
+
+    within ".item2"  do
+      assert page.has_content? item2.name
+      assert page.has_content? item2.description
+      assert page.has_content? item2.retired
+      assert page.has_content? "Edit"
+    end
 
     #       Then I should see a table with all items (active and inactive)
     #       And each item should have:
