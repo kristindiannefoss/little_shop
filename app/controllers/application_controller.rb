@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_cart
 
-
-  helper_method :current_user, :set_redirect
+  helper_method :current_user, :set_redirect, :current_admin?
 
   def set_redirect
     session[:redirect] =  request.referrer
@@ -24,4 +23,7 @@ class ApplicationController < ActionController::Base
     render file: "/public/404" unless current_user
   end
 
+  def current_admin?
+    current_user && current_user.admin?
+  end
 end

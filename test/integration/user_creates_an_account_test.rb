@@ -35,9 +35,8 @@ class UserCreatesAnAccountTest < ActionDispatch::IntegrationTest
     refute page.has_link?("Login")
 
     assert page.has_link?("Logout")
-save_and_open_page
     click_link "Logout"
 
-    # assert page.has_link?("Login")
+    assert page.has_link?("Login")
   end
 end

@@ -13,24 +13,39 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+
+        <% if current_admin? %>
+        <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+
+        <% else %>
         <li><%= link_to "Shop", items_path %></li>
-      </ul>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <% if current_user %>
-            <li><%= link_to "Logout", logout_path, method: :delete %></li>
-            <li><%= link_to "Dashboad", dashboard_path %></li>
-          <% else %>
-            <li><%= link_to "Login", login_path %></li>
-            <!-- <li role="separator" class="divider"></li> -->
-            <li><%= link_to "Create Account to Checkout", new_user_path %></li>
-          <% end %>
-
-        </li>
-        <li><a class="btn btn-default btn-lg" href="/cart" role="button">Cart<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <%= @cart.count_all %></a></li>
+        <% end %>
 
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+
+        <% if current_admin? %>
+        <li><%= link_to "Items", admin_items_path %></li>
+
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+
+        <% if current_user %>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <li><%= link_to "Dashboad", dashboard_path %></li>
+        <% else %>
+        <li><%= link_to "Login", login_path %></li>
+        <!-- <li role="separator" class="divider"></li> -->
+        <li><%= link_to "Create Account to Checkout", new_user_path %></li>
+        <% end %>
+
+        <% end %>
+      </li>
+      <li><a class="btn btn-default btn-lg" href="/cart" role="button">Cart<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <%= @cart.count_all %></a></li>
+
+    </ul>
+  </div>
+</div>
 </nav>

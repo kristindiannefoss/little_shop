@@ -1,0 +1,9 @@
+<ul>
+  <li><%= @item.name %></li>
+  <ul>
+    <li><%= @item.description %></li>
+    <li><%= image_tag @item.image_url %></li>
+    <li><%= number_to_currency(@item.price) %></li>
+    </li>
+  </ul>
+</ul>
