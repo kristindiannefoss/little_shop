@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create]
 
   namespace "admin" do
-    resources :items, only: [:index, :show, :new, :create]
+    resources :items, only: [:index, :show, :new, :create, :edit, :update]
     resources :users, only: [:show]
   end
-  
+
   get "/order", to: "orders#show"
   get "/dashboard", to: "users#show"
   get "/login", to: "sessions#new"

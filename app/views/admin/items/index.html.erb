@@ -1,17 +1,21 @@
 
 <h1>All Items</h1>
 
-<% @items.each do |item| %>
-<ul>
-  <li><%= item.name %></li>
-  <ul>
-    <li><%= item.description %></li>
-    <li><%= image_tag item.image_url %></li>
-    <li><%= number_to_currency(item.price) %></li>
-    <li><%= button_to "#{item.disabled_item?[0]}",
-            cart_items_path(item_id: item.id),
-            item.disabled_item?[1] %>
-    </li>
-
-  </ul>
-</ul><% end %>
+<table style="width:90%, text-align:left">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= link_to item.name, admin_item_path(item) %></td>
+    <td><%= item.description %></td>
+    <td><%= image_tag item.image_url %></td>
+    <td><%= item.price %></td>
+    <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
+  </tr>
+    <% end %>
+</table>

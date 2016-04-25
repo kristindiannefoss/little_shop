@@ -38,6 +38,7 @@ group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'mocha'
+  gem 'shoulda'
 end
 
 group :development do
