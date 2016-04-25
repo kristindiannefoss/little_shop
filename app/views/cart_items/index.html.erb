@@ -1,28 +1,32 @@
-<h1>Cart</h1>
-<div class="cart">
-  <% @items.each do |cart_item| %>
-    <ul>
-      <li><%= cart_item.item.name %></li>
-      <ul>
-        <li><%= image_tag cart_item.item.image_url, class:"thumbnail" %></li>
-        <li>Description: <%= cart_item.item.description %></li>
-        <li>Unit Price: <%= number_to_currency(cart_item.item.price) %></li>
-        <li>
+<div id="whatis" class="content-section-b" style="border-top: 0">
+  <div class="container">
 
-          <%= form_for :session, url: cart_item_path(:id, {item_id: cart_item.item.id}), html: {method: "patch"} do |f| %>
+    <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+      <h2>Your Paleo Cart</h2>
+      <p class="lead" style="margin-top:0">
+        Total: <%=  number_to_currency(@cart.total_price) %><%= button_to "Checkout", orders_path %></p>
+    </div>
 
-            <%= f.label :quantity, "Quantity" %>
-            <%= f.number_field :quantity, value: cart_item.quantity, min: 1 %>
+  <% @items.each_slice(3).to_a.each do |items| %>
+  <div class="row">
+    <% items.each do |cart_item| %>
+      <div class="col-sm-4 wow fadeInDown text-center">
+        <%= cart_item.item.name %><br />
+        <%= image_tag cart_item.item.image_url, class:"item-icon" %><br />
+        Description: <%= cart_item.item.description %><br />
+        Unit Price: <%= number_to_currency(cart_item.item.price) %><br />
+        <%= form_for :session, url: cart_item_path(:id, {item_id: cart_item.item.id}), html: {method: "patch"} do |f| %>
+          <%= f.label :quantity, "Quantity" %>
+          <%= f.number_field :quantity, value: cart_item.quantity, min: 1, input_html: {maxlength: 4} %><br />
           <%= f.submit "Update Cart" %>
-          <% end %>
-          </li>
-        <li><%= link_to "Remove", cart_item_path(cart_item.item), method: :delete %></li>
-        <li>Subtotal: <%= number_to_currency(cart_item.subtotal) %>
-      </ul>
-    </ul>
+        <% end %><br />
+        Subtotal: <%= number_to_currency(cart_item.subtotal) %><br />
+        <%= link_to "Remove", cart_item_path(cart_item.item), method: :delete %>
+      </div>
+    <% end %>
+  </div>
   <% end %>
+
+
+  </div>
 </div>
-
-Total: <%=  number_to_currency(@cart.total_price) %>
-
-<%= button_to "Checkout", orders_path %>

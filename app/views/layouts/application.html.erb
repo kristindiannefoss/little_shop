@@ -4,12 +4,16 @@
 <%= render partial: "shared/headtags" %>
 </head>
 <body id="home">
-  <% flash.each do |type, message| %>
-    <%= content_tag :div, message.html_safe, class: type %>
-  <% end %>
 
+<% flash.each do |type, message| %>
+  <%= content_tag :div, message.html_safe, class: "alert alert-info" %>
+<% end %>
+
+<%= render partial: "shared/navbar" %>
 
 <%= yield %>
 
+<%= render partial: "shared/footer" %>
+<%= render partial: "shared/bottompage" %>
 </body>
 </html>

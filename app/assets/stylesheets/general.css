@@ -146,6 +146,7 @@ filter: alpha(opacity=95) !important;
 	border: 1px solid #4A90BE;
 	color: #fff;
 	background-color:#4A90BE;
+	width: 250px
 }
 
 .mybutton_cyano:hover{
@@ -287,7 +288,7 @@ color: #ECEBEB;
 
 
 .network-name {
-	font-size: 14px;
+	font-size: 24px;
 	font-weight: 400;
 	letter-spacing: 1.5px;
 }
@@ -1252,5 +1253,19 @@ p.copyright {
 	.codrops-icon span {
 		display: none;
 	}
+
+}
+
+
+.item-icon {
+	overflow: hidden;
+	width: 150px;
+	height: 150px;
+	background-position: center center;
+  background-repeat: no-repeat;
+	border-radius: 50%;
+	padding: 7px;
+	margin: 10px;
+	border: 4px solid #d3d3d3;
 
 }

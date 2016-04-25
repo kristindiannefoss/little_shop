@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= render partial: "shared/headtags" %>
+</head>
+<body id="home">
+  <% flash.each do |type, message| %>
+    <%= content_tag :div, message.html_safe, class: type %>
+  <% end %>
 
 <div class="intro-header">
 <div class="col-xs-12 text-center abcen1">
@@ -7,9 +16,9 @@
       than all your most <em>hipster-paleo-diet-eating-crossfiting-friends</em>,<br>
       the<strong> ULTIMATE PALEO,</strong><br>the <strong>PALEOEST</p></strong></h3>
   <ul class="list-inline intro-social-buttons">
-    <li><a href="https://twitter.com/galantiandrea" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">First Button</span></a>
-    </li>
-    <li id="download" ><a href="#downloadlink" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Second Button</span></a>
-    </li>
+
+    <li><%= link_to content_tag(:span, "Shop", class: "network-name"), items_path, class: "btn mybutton_cyano wow fadeIn" %>
   </ul>
 </div>
+</body>
+</html>

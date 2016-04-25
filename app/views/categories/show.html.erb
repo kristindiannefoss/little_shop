@@ -1,7 +1,20 @@
-<h1><%= @category.name %></h1>
+<div id="whatis" class="content-section-b" style="border-top: 0">
+  <div class="container">
 
-<div class="<%= @category.name %>">
-<% @category.items.each do |item| %>
-  <%= render partial: 'shared/item', locals: {item: item} %>
-<% end %>
+    <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+      <h2><%= @category.name.capitalize %></h2>
+      <p class="lead" style="margin-top:0">For all your paleo needs!</p>
+    </div>
+
+
+    <div class="<%= @category.name %>">
+      <% @category.items.each_slice(3).to_a.each do |items| %>
+        <div class="row">
+          <% items.each do |item| %>
+            <%= render partial: 'shared/item', locals: {item: item} %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
