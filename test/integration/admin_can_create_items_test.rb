@@ -15,7 +15,6 @@ class AdminCanCreateItemsTest < ActionDispatch::IntegrationTest
     click_on "Create New Items"
 
     assert page.has_content?("Item Creation Page")
-    # save_and_open_page
     fill_in "Name", with: "Bronto Burgers"
     fill_in "Description", with: "Yum, meaty"
     fill_in "Image Url", with: "sample"
@@ -30,19 +29,5 @@ class AdminCanCreateItemsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Yum, meaty")
 
     assert page.has_content?("6.00")
-
-    assert page.has_content?("6.00")
-
-
-    #       I can create an item.
-    #         - An item must have a title, description and price.
-    #         - An item must belong to at least one category.
-    #         - The title and description cannot be empty.
-    #         - The title must be unique for all items in the system.
-    #         - The price must be a valid decimal numeric value and greater than zero.
-    #         - The photo is optional. If not present, a stand-in photo is used. (PAPERCLIP)
-
-    # assert true
-
   end
 end

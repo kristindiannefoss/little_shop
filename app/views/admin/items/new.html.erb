@@ -11,7 +11,7 @@
   <p><%= f.text_field :name, placeholder: "Name" %></p>
   <p><%= f.text_field :description, placeholder: "Description" %></p>
   <p><%= f.text_field :image_url, placeholder: "Image Url" %></p>
-  <p><%= f.text_field :price, placeholder: "Price" %></p>
+  <p><%= f.number_field :price, min: 0.01, placeholder: "Price" %></p>
   <p><%= f.number_field :category_id, placeholder: "Category ID" %></p>
 
   <p><%= f.submit %></p>

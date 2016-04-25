@@ -6,6 +6,8 @@ class Item < ActiveRecord::Base
 
   validates :name, uniqueness: true, presence: true
   validates :description, presence: true
+  validates_numericality_of :price,
+  :numericality => {:greater_than => 0}
 
   def disabled_item?
     retired ? ["Item Retired", disabled: true] : ["Add to Cart", disabled: false]
