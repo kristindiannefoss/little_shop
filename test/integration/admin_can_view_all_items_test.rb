@@ -25,14 +25,14 @@ class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
 
     assert page.has_content? "All Items"
 
-    within ".item1" do
+    within ".item#{item1.id}" do
       assert page.has_content? item1.name
       assert page.has_content? item1.description
       assert page.has_content? item1.retired
       assert page.has_content? "Edit"
     end
 
-    within ".item2"  do
+    within ".item#{item2.id}"  do
       assert page.has_content? item2.name
       assert page.has_content? item2.description
       assert page.has_content? item2.retired

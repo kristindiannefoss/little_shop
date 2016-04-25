@@ -3,3 +3,12 @@
 <h3>Email:</h3><%= @user.email %>
 <h3>Street Address:</h3> <%= @user.address %>
 <h3>City, State Zip</h3><%= @user.city %>, <%= @user.state %>  <%= @user.zipcode %>
+
+<h3>Number of Orders: <%= @orders.size %></h3>
+<ul>
+<% if @orders %>
+  <% @orders.each do |order| %>
+      <li>Order number: <%= order.id %> - <%= link_to "View Order Details", order_path(order_id: order.id) %></li>
+  <% end %>
+<% end %>
+</ul>

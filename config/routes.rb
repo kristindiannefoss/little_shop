@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   get "/admin/dashboard", to: "admin/users#show"
   get "/:category", to: "categories#show"
   get "/*page", to: "errors#not_found"
-
 end

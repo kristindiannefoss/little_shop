@@ -19,7 +19,7 @@ class AdminCanCreateItemsTest < ActionDispatch::IntegrationTest
     fill_in "Description", with: "Yum, meaty"
     fill_in "Image Url", with: "sample"
     fill_in "Price", with: 6.00
-    fill_in "Category ID", with: "1"
+    fill_in "Category ID", with: Category.first.id
     click_button "Create Item"
 
     assert items_path, current_path

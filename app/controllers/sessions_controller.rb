@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    set_redirect
   end
 
   def create
@@ -12,9 +13,9 @@ class SessionsController < ApplicationController
       if current_admin?
         redirect_to admin_dashboard_path
       else
-        redirect_to cart_path
+        redirect_to session[:redirect]
       end
-      
+
     else
       flash.now[:error] = "Invalid Credentials"
       render :new
@@ -25,5 +26,4 @@ class SessionsController < ApplicationController
     session.delete :user_id
     redirect_to items_path
   end
-
 end
