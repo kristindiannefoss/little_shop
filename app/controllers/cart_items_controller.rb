@@ -1,11 +1,12 @@
 class CartItemsController < ApplicationController
 
   def create
+    set_redirect
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     flash[:notice] = "Successfully added to cart!"
     session[:cart] = @cart.contents
-    redirect_to items_path
+    redirect_to session[:redirect]
   end
 
   def index

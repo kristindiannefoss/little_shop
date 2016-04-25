@@ -44,6 +44,7 @@ padding:0;
 	min-height:835px;
 }
 a.shop{
+	color: #fff;
 	display:inline-block;
 	float:left;
 	margin:9px 0 0 30px;
@@ -430,7 +431,7 @@ select{
 }
 /*--bycycle--*/
 .banner-sec{
-	background:url(bg.jpg) no-repeat;
+	background:url(background1.png) no-repeat;
 	background-size:cover;
 	min-height:200px;
 }
@@ -451,6 +452,7 @@ select{
 	margin:0 1%;
 	padding:1em 0;
 	transition:0.5s all;
+	text-align: center;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -479,7 +481,8 @@ select{
 	background:#fcff19;
 }
 .bike img{
-	width:100%;
+	width:80%;
+	margin:25px;
 }
 .bikes h2{
 	 color:#000;
@@ -495,6 +498,8 @@ select{
 .bike-mdl{
 	float:left;
 	width:40%;
+	min-height: 50px;
+	vertical-align: middle;
 }
 .bike-mdl h4{
 	color:#000;
@@ -2243,6 +2248,18 @@ a.order{
 	overflow: hidden;
 	width: 150px;
 	height: 150px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	padding: 7px;
+	margin: 10px;
+	border: 4px solid #d3d3d3;
+}
+
+.image-icon-smaller{
+	overflow: hidden;
+	/*width: 100px;
+	height: 100px;*/
 	background-position: center center;
 	background-repeat: no-repeat;
 	border-radius: 50%;
