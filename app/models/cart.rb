@@ -36,14 +36,9 @@ class Cart
       return 0
     else
       contents.map do |id, quantity|
-        [Item.find(id.to_i), quantity]
-      end.map do |item, quantity|
-        item.price * quantity
+        Item.find(id.to_i).price * quantity
       end.reduce(:+)
     end
   end
 
-  def subtotal(item_id)
-    count_of(item_id) * Item.find(item_id).price
-  end
 end
