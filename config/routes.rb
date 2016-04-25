@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :destroy, :update, :edit]
   resources :orders, only: [:index, :create]
 
+  namespace "admin" do
+    resources :items, only: [:index, :show, :new, :create]
+    resources :users, only: [:show]
+  end
+  
   get "/order", to: "orders#show"
   get "/dashboard", to: "users#show"
   get "/login", to: "sessions#new"
@@ -17,8 +22,4 @@ Rails.application.routes.draw do
   get "/admin/dashboard", to: "admin/users#show"
   get "/*page", to: "errors#not_found"
 
-  namespace "admin" do
-    resources :items, only: [:index, :show]
-    resources :users, only: [:show]
-  end
 end
