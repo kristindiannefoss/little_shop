@@ -25,4 +25,11 @@
 
 Total: <%=  number_to_currency(@cart.total_price) %>
 
-<%= button_to "Checkout", orders_path %>
+<% if current_user %>
+  <% if @cart.contents.empty? %>
+  <% else %>
+    <%= button_to "Checkout", orders_path %>
+  <% end %>
+<% else %>
+  <%= button_to "Login to Checkout", login_path, method: :get %>
+<% end %>

@@ -6,21 +6,21 @@
   <% end %>
 </h4>
 
-  <table>
-    <th>
-      <td>
+  <table border=1 width="500px">
+    <tr>
+      <th>
         Name
-      </td>
-      <td>
+      </th>
+      <th>
         Quantity
-      </td>
-      <td>
+      </th>
+      <th>
         Price
-      </td>
-      <td>
+      </th>
+      <th>
         Subtotal
-      </td>
-    </th>
+      </th>
+    </tr>
     <% @order_items.each do |order_item| %>
       <tr>
         <td>
@@ -30,16 +30,19 @@
           <%= order_item.quantity %>
         </td>
         <td>
-          <%= order_item.item.price %>
+          <%= number_to_currency(order_item.item.price) %>
         </td>
         <td>
-          <%= order_item.subtotal %>
+          <%= number_to_currency(order_item.subtotal) %>
         </td>
       </tr>
     <% end %>
     <tr>
-      <td colspan=4>
-        Order Total: <%= number_to_currency(@order.total_price) %>
+      <td colspan="3">
+        Grand Total:
+      </td>
+      <td>
+         <%= number_to_currency(@order.total_price) %>
       </td>
 
     </tr>
