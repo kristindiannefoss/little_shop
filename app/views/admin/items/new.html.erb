@@ -1,17 +1,12 @@
 <h1>Item Creation Page</h1>
 
-<h3>Category Key:</h3>
-<% @categories.each do |category| %>
-  <p><%= category.name %> : <%= category.id %></p>
-<% end %>
-
-<h3>Enter New Category Information:</h3>
+<h3>Enter New Item Information:</h3>
 
 <%= form_for @item, url:{:controller=>'admin/items', :action=>'create'} do |f| %>
   <p><%= f.text_field :name, placeholder: "Name" %></p>
   <p><%= f.text_field :description, placeholder: "Description" %></p>
   <p><%= f.text_field :image_url, placeholder: "Image Url" %></p>
-  <p><%= f.number_field :price, min: 0.01, placeholder: "Price" %></p>
+  <p><%= f.number_field :price, step: "any", placeholder: "Price" %></p>
   <p><%= f.number_field :category_id, placeholder: "Category ID" %></p>
 
   <p><%= f.submit %></p>

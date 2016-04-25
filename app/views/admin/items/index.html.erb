@@ -7,15 +7,17 @@
     <th>Description</th>
     <th>Image</th>
     <th>Price</th>
+    <th>Is Retired?</th>
     <th>Action</th>
   </tr>
   <% @items.each do |item| %>
   <tr>
-<div class="item<%= item.id %>"
-    <td><%= link_to item.name, admin_item_path(item) %></td>
+<div class="item<%= item.id %>">
+    <td>
+      <%= link_to item.name, admin_item_path(item) %></td>
     <td><%= item.description %></td>
     <td><%= image_tag item.image_url %></td>
-    <td><%= item.price %></td>
+    <td><%= number_to_currency(item.price) %></td>
     <td><%= item.retired %></td>
     <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
   </tr>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create]
 
   namespace "admin" do
-    resources :items, only: [:index, :show, :new, :create, :edit, :update]
+    resources :items
     resources :users, only: [:show]
   end
 
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/cart", to: "cart_items#index"
-  get "/:category", to: "categories#show"
   get "/admin/dashboard", to: "admin/users#show"
+  get "/:category", to: "categories#show"
   get "/*page", to: "errors#not_found"
 
 end
