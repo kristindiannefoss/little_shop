@@ -1,0 +1,17 @@
+
+<div class="container">
+	 <div class="bikes">
+		 <h3>POPULAR ITEMS</h3>
+     <div class="categorie-grids">
+     <% sample.each do |item| %>
+			 <div class="col-md-4">
+         <%= image_tag item.image_url, class:"image-icon" %>
+				 <%= content_tag :h4, item.name %>
+				 <%= content_tag :p, item.description %>
+         <%= content_tag :p, number_to_currency(item.price) %><br />
+				 <%= link_to "Add to Cart", cart_items_path(item), class:"morebtn cartbtn" %>
+			 </div>
+       <% end %>
+	 </div>
+ </div>
+</div>
