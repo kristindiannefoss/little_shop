@@ -14,7 +14,7 @@
          <% if item.retired? %>
             <%= link_to "Item Retired", "#", class:"buy" %>
           <% else %>
-            <%= link_to "Add to Cart", cart_items_path(item_id: item.id), class:"buy", method: :post %>
+            <%= render partial: "shared/cartbutton", locals: {item:item} %>
           <% end %>
 
        </div>

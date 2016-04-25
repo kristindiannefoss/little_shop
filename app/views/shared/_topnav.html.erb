@@ -12,7 +12,7 @@
           <li><%= link_to "DINOSAUR MEAT", "/meats", class:"morebtn" %></li>
           <li><%= link_to "DINOSAUR EGGS", "/eggs", class:"morebtn" %></li>
           <li><%= link_to "FRUITS & VEGGIES", "/fruitsveggies", class:"morebtn" %></li>
-          <a class="shop" href="cart.html"><%= image_tag "cart.png" %> &nbsp;<%= @cart.count_all %></a>
+          <a class="shop" href="<%= cart_path %>"><%= image_tag "cart.png" %> &nbsp;<%= @cart.count_all %></a>
         </ul>
      </div>
      <div class="clearfix"></div>

@@ -494,6 +494,7 @@ select{
 .bike-cost{
 	background:#b7b7b7;
 	padding:10px 1em;
+
 }
 .bike-mdl{
 	float:left;
@@ -940,10 +941,8 @@ a.length{
 	border:1px solid;
 	padding:5px;
 }
-.btn_form{
-margin-top:2em;
-}
-.btn_form a {
+
+.btn_form {
 	border: none;
 	outline: none;
 	display: inline-block;
