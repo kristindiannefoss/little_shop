@@ -7,12 +7,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = current_user.orders.find_by(id: params[:format].to_i)
-
-    # byebug
-
-    # @order = Order.find_by(order_id: params[:id], )
-    @order_items = OrderItem.where(order_id: @order.id)
+    @order = current_user.orders.find_by(id: params[:order_id])
+    @order_items = OrderItem.where(order_id: @order.id) if @order
+    redirect_to '/errors/not_found.html' unless @order
   end
 
   def create
@@ -22,6 +19,7 @@ class OrdersController < ApplicationController
         @order.order_items.create(item_id: item_id.to_i, quantity: item_qnt)
         @order.update(status: "ordered")
       end
+      session.delete :cart
       flash[:notice] = "Order was successfully placed"
       redirect_to orders_path
     else

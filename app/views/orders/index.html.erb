@@ -3,6 +3,6 @@
   <% @orders.each do |order| %>
   <ul>
     <li>Order Number: <%= order.id %></li>
-    <li><%= link_to "View Order Details", order_path(order) %></li>
+    <li><%= link_to "View Order Details", order_path(order_id: order.id) %></li>
   </ul>
   <% end %>
