@@ -22,11 +22,14 @@ class AdminCanEditItemsTest < ActionDispatch::IntegrationTest
     refute page.has_content?("true")
 
     click_on "Edit"
+
+    assert items_path, "/admin/items/:item_id/edit"
+
     fill_in "Name", with: "Bronto Burgers"
     fill_in "Description", with: "Yum, meaty"
     fill_in "Image Url", with: "sample"
+    click_on "Update Item"
 
-    assert items_path, "/admin/items/:item_id/edit"
     assert page.has_content?("Bronto Burgers")
     assert page.has_content?("Yum, meaty")
   end
