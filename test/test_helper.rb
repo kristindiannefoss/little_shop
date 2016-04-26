@@ -33,7 +33,6 @@ class ActiveSupport::TestCase
       )
     end
   end
-end
 
   def create_user(num = 1, role = 0)
     num.times do
@@ -48,6 +47,7 @@ end
       role: role)
     end
   end
+end
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
