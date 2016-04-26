@@ -3,6 +3,8 @@
 		<div class="cart-top">
 			Your Orders
     </div>
-		<%= render partial: "shared/orders", locals: {orders:@orders} %>
+		<div class="order-index">
+			<%= render partial: "shared/orders", locals: {orders:@orders} %>
+		</div>
 	</div>
 </div>
