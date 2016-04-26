@@ -7,7 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Category.create([{ name: "meats" }, { name: "eggs" }, { name: "fruitsveggies" }])
+Category.create([{ name: "meats" },
+                 { name: "eggs" },
+                 { name: "fruitsveggies" }])
 
 16.times do
   Item.create(
