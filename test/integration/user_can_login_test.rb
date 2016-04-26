@@ -17,6 +17,7 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content? user.state
     assert page.has_content? user.zipcode
     refute page.has_link? "Login"
-    assert page.has_content? "Logout"
+    assert page.has_button? "Logout"
+
   end
 end
