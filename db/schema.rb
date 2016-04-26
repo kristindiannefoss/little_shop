@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20160424192716) do
     t.string  "name"
     t.string  "description"
     t.string  "image_url"
+    t.decimal "price"
     t.integer "category_id"
     t.boolean "retired",     default: false
-    t.decimal "price"
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
