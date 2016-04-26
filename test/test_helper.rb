@@ -35,7 +35,7 @@ class ActiveSupport::TestCase
   end
 end
 
-  def create_user(num = 1, role)
+  def create_user(num = 1, role = 0)
     num.times do
       User.create(first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -45,7 +45,7 @@ end
       state: Faker::Address.state_abbr,
       zipcode: Faker::Address.zip_code,
       password: "password",
-      role: role || 0)
+      role: role)
     end
   end
 
