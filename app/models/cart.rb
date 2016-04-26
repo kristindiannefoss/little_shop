@@ -40,5 +40,4 @@ class Cart
       end.reduce(:+)
     end
   end
-
 end
