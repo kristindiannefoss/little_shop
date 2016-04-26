@@ -23,5 +23,4 @@ class UserCanCheckoutTest < ActionDispatch::IntegrationTest
     order = Order.first
     assert page.has_content? "Order Number: #{order.id}"
   end
-
 end

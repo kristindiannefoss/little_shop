@@ -1,8 +1,5 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
 
   def create
     @user = User.new(user_params)
@@ -18,7 +15,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-    @orders = @user.orders
   end
 
 

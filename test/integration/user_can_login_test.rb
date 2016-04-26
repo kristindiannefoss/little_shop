@@ -10,6 +10,7 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     click_button "Log in"
 
     assert_equal "/dashboard", current_path
+
     assert page.has_content? "Logged in as #{user.first_name}"
     assert page.has_content? user.email
     assert page.has_content? user.city
@@ -17,6 +18,5 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content? user.zipcode
     refute page.has_link? "Login"
     assert page.has_content? "Logout"
-
   end
 end

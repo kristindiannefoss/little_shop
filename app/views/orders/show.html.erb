@@ -33,16 +33,19 @@
           <%= order_item.quantity %>
         </td>
         <td>
-          <%= order_item.item.price %>
+          <%= number_to_currency(order_item.item.price) %>
         </td>
         <td>
-          <%= order_item.subtotal %>
+          <%= number_to_currency(order_item.subtotal) %>
         </td>
       </tr>
     <% end %>
     <tr>
-      <td colspan=4>
-        Order Total: <%= number_to_currency(@order.total_price) %>
+      <td colspan="3">
+        Grand Total:
+      </td>
+      <td>
+         <%= number_to_currency(@order.total_price) %>
       </td>
 
     </tr>

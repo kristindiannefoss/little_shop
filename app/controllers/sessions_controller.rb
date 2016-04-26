@@ -9,7 +9,13 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in as #{user.first_name}"
-      redirect_to session[:redirect]
+
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to session[:redirect]
+      end
+
     else
       flash.now[:error] = "Invalid Credentials"
       render :new
@@ -20,5 +26,4 @@ class SessionsController < ApplicationController
     session.delete :user_id
     redirect_to items_path
   end
-
 end
