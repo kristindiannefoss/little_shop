@@ -17,7 +17,6 @@
 						<h4>Unit Price: <%= number_to_currency(item.price) %></h4>
 						<h4>Subtotal: <%= number_to_currency(item.subtotal) %></h4>
 						<%= form_for :session, url: cart_item_path(:id, {item_id: item.id}), html: {method: "patch"} do |f| %>
-							Qty ::
 							<%= f.number_field :quantity, value: item.quantity, min: 1, class: "form-control input-small" %>
 							<%= f.submit "Update Quantity" %>
 						<% end %>

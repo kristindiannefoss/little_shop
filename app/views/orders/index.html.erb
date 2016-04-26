@@ -3,8 +3,6 @@
 		<div class="cart-top">
 			Your Orders
     </div>
-    <% @orders.each do |order| %>
-      Order Number: <%= order.id %> - <%= link_to "View Order Details", order_path(order) %><br />
-    <% end %>
-  </div>
+		<%= render partial: "shared/orders", locals: {orders:@orders} %>
+	</div>
 </div>
