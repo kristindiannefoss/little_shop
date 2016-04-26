@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :set_redirect, :current_admin?
 
   def set_redirect
-    session[:redirect] =  request.referrer
-    if session[:redirect].nil?
+    if request.referrer == "/login"
       session[:redirect] = dashboard_path
+    else
+      session[:redirect] = request.referrer || dashboard_path
     end
   end
 

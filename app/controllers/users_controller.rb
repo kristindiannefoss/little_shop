@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    set_redirect
     @user = User.new
   end
 
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-      redirect_to dashboard_path
+      redirect_to session[:redirect]
     else
       flash.now[:error] = @user.errors.full_messages.join(", ")
       render :new
