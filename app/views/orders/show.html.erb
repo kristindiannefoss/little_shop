@@ -3,10 +3,10 @@
 		<div class="cart-top">
       <h4>Order Number:<%= @order.id %></h4>
     </div>
-      <h5>Order Date:<%= @order.created_at %></h5>
+      <h5>Order Date: <%= @order.create_time %></h5>
       <h5>Order Status: <%= @order.status %></h5>
       <% if @order.status == "cancelled" || @order.status == "completed" %>
-        <%= @order.updated_at %>
+        <%= @order.update_time %>
       <% end %>
 
   <table border="1" width="500px">
