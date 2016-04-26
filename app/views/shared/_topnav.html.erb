@@ -4,16 +4,18 @@
          <a href="/"><%= image_tag "logo.png" %></a>
        </div>
       <div class="top-nav">
-        <label class="mobile_menu" for="mobile_menu">
-        <span>Menu</span>
-        </label>
-        <input id="mobile_menu" type="checkbox">
-         <ul class="nav">
-          <li><%= link_to "DINOSAUR MEAT", "/meats", class:"morebtn" %></li>
-          <li><%= link_to "DINOSAUR EGGS", "/eggs", class:"morebtn" %></li>
-          <li><%= link_to "FRUITS & VEGGIES", "/fruitsveggies", class:"morebtn" %></li>
-          <a class="shop" href="<%= cart_path %>"><%= image_tag "cart.png" %> &nbsp;<%= @cart.count_all %></a>
-        </ul>
+        <% if current_admin? %>
+          <li><%= link_to "Items", admin_items_path, class:"morebtn" %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete, class:"morebtn" %></li>
+        <% else %>
+          <% if current_user %>
+            <li><%= link_to "Logout", logout_path, method: :delete, class:"morebtn" %></li>
+            <li><%= link_to "Dashboad", dashboard_path, class:"morebtn" %></li>
+          <% else %>
+            <li><%= link_to "Login", login_path, class:"morebtn" %></li>
+            <li><%= link_to "Create Account to Checkout", new_user_path, class:"morebtn" %></li>
+        <% end %>
+      <% end %>
      </div>
      <div class="clearfix"></div>
    </div>

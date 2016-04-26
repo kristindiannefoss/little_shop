@@ -8,11 +8,10 @@ class RemoveItemFromCartTest < ActionDispatch::IntegrationTest
     visit '/items'
     click_button "Add to Cart"
     visit '/cart'
-    click_link "Remove"
+    click_button "Remove"
     assert '/cart', current_path
     assert page.has_content? "Successfully removed #{item.name}!"
     assert page.has_link? "#{item.name}"
-
     assert "/cart", current_path
   end
 end
