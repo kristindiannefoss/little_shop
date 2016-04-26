@@ -7,17 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Category.create([{name: "meats"},{name: "eggs"}, {name: "fruitsveggies"}])
-meats = Category.find_by(name: "meats")
-eggs = Category.find_by(name: "eggs")
-fv = Category.find_by(name: "fruits & veggies")
+Category.create([{ name: "meats" }, { name: "eggs" }, { name: "fruitsveggies" }])
 
 16.times do
   Item.create(
-  name: Faker::Commerce.product_name,
-  description: Faker::Hipster.paragraph,
-  image_url: Faker::Placeholdit.image("200x200"),
-  price: Faker::Commerce.price,
-  category_id: Category.all.sample.id,
-  retired: false)
+    name: Faker::Commerce.product_name,
+    description: Faker::Hipster.paragraph,
+    image_url: Faker::Placeholdit.image("200x200"),
+    price: Faker::Commerce.price,
+    category_id: Category.all.sample.id,
+    retired: false)
 end
