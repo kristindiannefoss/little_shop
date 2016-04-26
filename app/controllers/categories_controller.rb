@@ -6,8 +6,7 @@ class CategoriesController < ApplicationController
     @items = @category.items if @category
   end
 
-  private
-  
+  private  
   def set_category
     @category = Category.find_by(name: params[:category])
   end

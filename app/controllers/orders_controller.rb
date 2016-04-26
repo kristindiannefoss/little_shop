@@ -16,10 +16,6 @@ class OrdersController < ApplicationController
     @order = current_user.orders.new
     if @order.save
       @order.order_confirmed(@cart)
-      # @cart.contents.each_pair do |item_id, item_qnt|
-      #   @order.order_items.create(item_id: item_id.to_i, quantity: item_qnt)
-      #   @order.update(status: "ordered")
-      # end
       session.delete :cart
       flash[:notice] = "Order was successfully placed"
       redirect_to orders_path
@@ -36,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def redirect_if_no_order
-    redirect_to '/errors/not_found.html' unless @order
+    redirect_to "/errors/not_found.html" unless @order
   end
 
   def order_params

@@ -15,7 +15,8 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find_by(id: params[:id])
   end
+
   def redirect_if_no_item
-    redirect_to '/errors/not_found.html' unless @item
+    redirect_to "/errors/not_found.html" unless @item
   end
 end
