@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @items = @cart.mapped_values
+    @items = @cart.mapped_values || {}
   end
 
   def update
@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
     item = Item.find(params[:id])
     @cart.remove_item(params[:id])
     flash[:notice] = "Successfully removed <a href=\"/items/#{item.id}\">#{item.name}</a>!"
-    redirect_to cart_path
+    redirect_to :back
   end
 
 end

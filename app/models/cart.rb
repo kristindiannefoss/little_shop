@@ -6,7 +6,7 @@ class Cart
   end
 
   def mapped_values
-    a = contents.map do |id, qty|
+    contents.map do |id, qty|
       CartItem.new(id.to_i, qty)
     end
   end

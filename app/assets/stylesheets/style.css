@@ -1261,7 +1261,7 @@ span.total{
 }
 span.final{
 	font-weight:600;
-	padding-top:6px;
+	padding-top:1.5em;
 	font-size:1.3em;
 }
 h4.last-price{
@@ -1271,12 +1271,13 @@ h4.last-price{
 	width:50%;
 	float:left;
 	padding-top:10px;
+	padding-bottom:10px;
 }
 .cart-total {
-  padding-top: 26px;
+  padding-top: 1em;
   border-left: 1px solid;
 }
-a.order {
+.order {
   background:#333;
   padding: 10px 1.5em;
   border-radius: 7px;
@@ -1632,7 +1633,7 @@ select {
 a.continue{
 	width:30%;
 }
-a.order{
+.order{
 	width:40%;
 }
 a.add-cart {
@@ -2031,7 +2032,7 @@ a.continue {
 h4.last-price,span.final {
   font-size: 1em;
 }
-a.order,.price-details span{
+.order,.price-details span{
 	font-size:0.9em;
 }
 .viw {
@@ -2229,7 +2230,7 @@ a.continue {
 .cart-item-info h3 {
   margin-top: 1em;
 }
-a.order{
+.order{
   font-size: 0.85em;
   margin: 2em auto 0 auto;
   width: 68%;
