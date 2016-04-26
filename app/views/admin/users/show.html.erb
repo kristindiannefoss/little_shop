@@ -1,3 +1,8 @@
-<h1>Welcome Administrator: <%= @user.first_name %></h1>
-
-<%= link_to "Create New Items", new_admin_item_path %>
+<div class="container admin">
+  <h1>Welcome Administrator <%= @user.first_name %></h1>
+  <%= link_to "Create New Items", new_admin_item_path %><br />
+  <%= link_to "View All Orders - Coming Soon!", "#" %><br />
+  <%= link_to "View All Users - Coming Soon!", "#" %><br />
+  <%= link_to "Company News - Coming Soon!", "#" %><br />
+  <%= link_to "Training - Coming Soon!", "#" %><br />
+</div>
