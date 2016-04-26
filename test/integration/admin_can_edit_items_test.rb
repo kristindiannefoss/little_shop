@@ -1,12 +1,12 @@
-require 'test_helper'
+require "test_helper"
 
 class AdminCanEditItemsTest < ActionDispatch::IntegrationTest
   test "admin can edit an item" do
     admin = User.create(first_name: "Kris",
-    last_name: "Foss",
-    email: "kris.foss@gmail.com",
-    password: "password",
-    role: 1)
+                        last_name: "Foss",
+                        email: "kris.foss@gmail.com",
+                        password: "password",
+                        role: 1)
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
     create_categories(2)
