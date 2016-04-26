@@ -1,27 +1,4 @@
-
-<style type="text/css">
-
-html {
-  background: url(http://www.wallpaperup.com/uploads/wallpapers/2014/03/02/283693/0e33f9774a5e92ef842aa56691fe1ce1.jpg) no-repeat center center fixed;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  padding-top: 0px;
-}
-
-</style>
-
-<container>
-  <CENTER>
-    <DIV STYLE="position:absolute; height:25px" class="image">
-      <p class="huge">NachomomsPaleo</p>
-      <p class="med">More Paleo
-        than all your most <em>hipster-paleo-diet-eating-crossfiting-friends</em>,<br>
-        the<strong> ULTIMATE PALEO,</strong><br>the <strong>PALEOEST</p></strong>
-        <div class="float-button">
-          <%= link_to "Shop", items_path, class:"btn btn-default btn-lg custom" %>
-        </div>
-      </DIV>
-    </CENTER>
-  </container>
+<%= render partial: "shared/banner" %>
+<%= render partial: "shared/categories" %>
+<%= render partial: "shared/popular", locals: { sample:@sample } %>
+<%= render partial: "shared/contact" %>

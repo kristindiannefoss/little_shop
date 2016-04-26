@@ -1,8 +1,8 @@
-<h1>Orders Index</h1>
-
-  <% @orders.each do |order| %>
-  <ul>
-    <li>Order Number: <%= order.id %></li>
-    <li><%= link_to "View Order Details", order_path(order_id: order.id) %></li>
-  </ul>
-  <% end %>
+<div class="cart">
+	<div class="container">
+		<div class="cart-top">
+			Your Orders
+    </div>
+		<%= render partial: "shared/orders", locals: {orders:@orders} %>
+	</div>
+</div>

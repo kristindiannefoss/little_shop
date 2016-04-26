@@ -1,15 +1,16 @@
 class CartItemsController < ApplicationController
 
   def create
+    set_redirect
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     flash[:notice] = "Successfully added to cart!"
     session[:cart] = @cart.contents
-    redirect_to items_path
+    redirect_to session[:redirect]
   end
 
   def index
-    @items = @cart.mapped_values
+    @items = @cart.mapped_values || {}
   end
 
   def update
@@ -24,5 +25,4 @@ class CartItemsController < ApplicationController
     flash[:notice] = "Successfully removed <a href=\"/items/#{item.id}\">#{item.name}</a>!"
     redirect_to cart_path
   end
-
 end

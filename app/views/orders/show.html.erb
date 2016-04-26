@@ -1,12 +1,15 @@
-<h1>Order Number:<%= @order.id %></h1>
-<h4>Order Date:<%= @order.created_at %></h4>
-<h4>Order Status: <%= @order.status %>
-  <% if @order.status == "cancelled" || @order.status == "completed" %>
-    <%= @order.updated_at %>
-  <% end %>
-</h4>
+<div class="cart">
+	<div class="container">
+		<div class="cart-top">
+      <h4>Order Number:<%= @order.id %></h4>
+    </div>
+      <h5>Order Date:<%= @order.created_at %></h5>
+      <h5>Order Status: <%= @order.status %></h5>
+      <% if @order.status == "cancelled" || @order.status == "completed" %>
+        <%= @order.updated_at %>
+      <% end %>
 
-  <table border=1 width="500px">
+  <table border="1" width="500px">
     <tr>
       <th>
         Name

@@ -23,8 +23,7 @@ class UserCreatesAnAccountTest < ActionDispatch::IntegrationTest
     fill_in "Zip Code", with: user_info[:zipcode]
     fill_in "E-Mail", with: user_info[:email]
     fill_in "Password", with: user_info[:password]
-
-    click_on "Create Account"
+    click_button "Create Account"
     assert "/dashboard", current_path
     assert page.has_content?("Logged in as #{user_info[:first_name]} #{user_info[:last_name]}")
     assert page.has_content?(user_info[:email])

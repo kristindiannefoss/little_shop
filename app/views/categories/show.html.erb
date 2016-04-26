@@ -1,7 +1,6 @@
-<h1><%= @category.name %></h1>
-
-<div class="<%= @category.name %>">
-<% @category.items.each do |item| %>
-  <%= render partial: 'shared/item', locals: {item: item} %>
-<% end %>
+<div class="bikes">
+  <div class="mountain-sec">
+    <h2><%= @category.name.capitalize %></h2>
+      <%= render partial: 'shared/items', locals: {all_items: @items} %>
+  </div>
 </div>
