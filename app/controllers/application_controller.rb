@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
 
   helper_method :current_user, :set_redirect, :current_admin?
+  # skip_before_filter :verify_authenticity_token, only: [:index]
+  
 
   def set_redirect
     if request.referrer == "/login"
