@@ -1,0 +1,16 @@
+<h1>Edit Item Page</h1>
+
+<h3>Edit Information:</h3>
+
+<%= form_for @item, url:{:controller=>'admin/items', :action=>'update'} do |f| %>
+  <p><%= f.text_field :name, placeholder: "Name" %></p>
+  <p><%= f.text_field :description, placeholder: "Description" %></p>
+  <p><%= f.text_field :image_url, placeholder: "Image Url" %></p>
+  <p><%= f.number_field :price, step: "any", placeholder: "Price" %></p>
+  <p><%= f.number_field :category_id, placeholder: "Category ID" %></p>
+  <p><%= f.label 'retired', "Retired" %></p>
+  <p><%= f.radio_button :retired, true %></p>
+  <p><%= f.label 'not_retired', "Not Retired" %></p>
+  <p><%= f.radio_button :retired, false %></p>
+  <p><%= f.submit %></p>
+<% end %>
