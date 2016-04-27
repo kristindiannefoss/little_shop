@@ -5,6 +5,9 @@ class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
     admin = User.create(first_name: "Kris",
     last_name: "Foss",
     email: "kris.foss@gmail.com",
+    city: "Denver",
+    state: "CO",
+    zipcode: "80123",
     password: "password",
     role: 1)
 
@@ -14,7 +17,7 @@ class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
     item1 = Item.first
     item2 = Item.last
     # As an Admin When I visit "/admin/dashboard"
-    visit admin_dashboard_path
+    visit "admin_dashboard_path"
     #       Then I should see a link for viewing all items
     #       And when I click that link
     click_on "Items"
