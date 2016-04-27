@@ -10,6 +10,7 @@ class Cart
       CartItem.new(id.to_i, qty)
     end
   end
+
   def add_item(item_id)
     contents[item_id.to_s] ||= 0
     contents[item_id.to_s] += 1
@@ -28,15 +29,15 @@ class Cart
   end
 
   def update(item_id, qty)
-    contents[item_id] = qty
+    contents[item_id.to_s] = qty
   end
 
   def total_price
     if contents.empty?
       return 0
     else
-      contents.map do |id, quantity|
-        Item.find(id.to_i).price * quantity
+      mapped_values.map do |ci|
+        ci.subtotal
       end.reduce(:+)
     end
   end
