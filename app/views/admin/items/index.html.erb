@@ -1,26 +1,36 @@
+<div class="cart">
+  <div class="container">
+    <div class="cart-top">
+      <h1>All Items</h1>
+    </div>
+    <div class="cart-conclusion">
 
-<h1>All Items</h1>
+      <table style="width:100%, text-align:left">
+        <tr>
+          <th width=20%>Name</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th width=10%>Is Retired?</th>
+          <th>Action</th>
+        </tr>
+        <% @items.each do |item| %>
+        <tr>
+          <div class="item<%= item.id %>">
+            <td>
+              <%= link_to item.name, item_path(item) %></td>
+              <td><%= item.description %></td>
+              <td><%= image_tag item.image_url, class:"image-icon"%></td>
+              <td><%= number_to_currency(item.price) %></td>
+              <td><%= item.retired %></td>
+              <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
+            </tr>
+          </div>
+          <% end %>
+          <tr>
 
-<table style="width:90%, text-align:left">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Image</th>
-    <th>Price</th>
-    <th>Is Retired?</th>
-    <th>Action</th>
-  </tr>
-  <% @items.each do |item| %>
-  <tr>
-<div class="item<%= item.id %>">
-    <td>
-      <%= link_to item.name, admin_item_path(item) %></td>
-    <td><%= item.description %></td>
-    <td><%= image_tag item.image_url %></td>
-    <td><%= number_to_currency(item.price) %></td>
-    <td><%= item.retired %></td>
-    <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
-  </tr>
-</div>
-    <% end %>
-</table>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

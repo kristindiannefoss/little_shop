@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    render file: "/public/404" unless current_user
+    redirect_to "/errors/not_found.html" unless current_user
   end
 
   def current_admin?

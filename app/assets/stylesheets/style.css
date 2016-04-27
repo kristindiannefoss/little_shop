@@ -157,7 +157,6 @@ ul.callbacks_tabs.callbacks1_tabs {
 	text-transform:uppercase;
 	color:#fcff19;
 	display:inline-block;
-	margin:0 auto;
 	border-radius:7px;
 	transition:0.5s all ease;
 	-webkit-transition:0.5s all ease;
@@ -1137,6 +1136,9 @@ font-size: 1em;
 }
 .order-index{
 	margin:14px;
+}
+.order-index ul{
+	list-style: none;
 }
 
 .cart-conclusion{
