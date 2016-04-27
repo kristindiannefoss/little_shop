@@ -1,11 +1,10 @@
 require "test_helper"
 
 class CartTest < ActiveSupport::TestCase
-
   def test_add_item_to_cart
     cart = Cart.new({})
     cart.add_item(1)
-    assert_equal ({"1" => 1}), cart.contents
+    assert_equal ({ "1" => 1 }), cart.contents
   end
 
   def test_count_all_items_in_cart
@@ -58,5 +57,4 @@ class CartTest < ActiveSupport::TestCase
     expected = ((item1.price * 2) + item2.price)
     assert_equal expected, cart.total_price
   end
-
 end
