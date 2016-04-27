@@ -20,7 +20,6 @@ class AdminCanCreateItemsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Item Creation Page")
     fill_in "Name", with: "Bronto Burgers"
     fill_in "Description", with: "Yum, meaty"
-    fill_in "Image Url", with: "sample"
     fill_in "Price", with: 6.00
     fill_in "Category ID", with: Category.first.id
     click_button "Create Item"

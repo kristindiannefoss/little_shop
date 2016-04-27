@@ -8,9 +8,6 @@ class UserCanCheckoutTest < ActionDispatch::IntegrationTest
     visit "/items"
     click_on "Add to Cart"
 
-    # within ".navbar" do
-    #   click_on "Cart"
-    # end
     find(:xpath, "//a[@href='/cart']").click
     click_on "Login"
     fill_in "E-Mail", with: User.first.email
@@ -21,6 +18,6 @@ class UserCanCheckoutTest < ActionDispatch::IntegrationTest
     assert_equal "/orders", current_path
     assert page.has_content? "Order was successfully placed"
     order = Order.first
-    assert page.has_content? "Order number: #{order.id}"
+    assert page.has_content? "Order number : #{order.id}"
   end
 end

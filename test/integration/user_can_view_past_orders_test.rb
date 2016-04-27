@@ -11,8 +11,8 @@ class UserCanViewPastOrdersTest < ActionDispatch::IntegrationTest
     ApplicationController.any_instance.stubs(:current_user).returns(gerry)
 
     visit '/orders'
-    assert page.has_content?("Order number: #{Order.first.id}")
-    refute page.has_content?("Order number: #{Order.last.id}")
+    assert page.has_content?("Order number : #{Order.first.id}")
+    refute page.has_content?("Order number : #{Order.last.id}")
 
   end
 end

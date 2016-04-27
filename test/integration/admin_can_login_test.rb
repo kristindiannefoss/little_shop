@@ -11,7 +11,7 @@ class AdminCanLoginTest < ActionDispatch::IntegrationTest
     click_button "Log in"
 
     within "h1" do
-      assert page.has_content? "Welcome Administrator #{admin.first_name}"
+      assert page.has_content? "Welcome Administrator : #{admin.first_name}"
     end
   end
 end

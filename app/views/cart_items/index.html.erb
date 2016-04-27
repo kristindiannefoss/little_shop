@@ -10,7 +10,7 @@
 			<div class="cart-header">
 				<div class="cart-sec">
 					<div class="cart-item cyc">
-						<%= image_tag item.image_url %>
+						<%= render partial: "shared/imagesquare", locals:{item:item} %>
 					</div>
 					<div class="cart-item-info">
 						<h3><%= item.name %><span></span></h3>

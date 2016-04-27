@@ -14,7 +14,7 @@ class UserCanViewPastOrdersItemsTest < ActionDispatch::IntegrationTest
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit '/orders'
-    assert page.has_content?("Order number: #{order.id}")
+    assert page.has_content?("Order number : #{order.id}")
     assert page.has_link?("View Order Details")
     click_link "View Order Details"
     assert page.has_content?("#{order.items.first.name}")
