@@ -1,7 +1,7 @@
 require "test_helper"
 
 class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
-  test "  " do
+  test "admin can view all items" do
     admin = User.create(first_name: "Kris",
     last_name: "Foss",
     email: "kris.foss@gmail.com",
@@ -16,12 +16,8 @@ class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
     create_items(2)
     item1 = Item.first
     item2 = Item.last
-    # As an Admin When I visit "/admin/dashboard"
-    visit "admin_dashboard_path"
-    #       Then I should see a link for viewing all items
-    #       And when I click that link
+    visit admin_dashboard_path
     click_on "Items"
-    #       Then my current path should be "/admin/items"
     assert_equal "/admin/items", current_path
 
     assert page.has_content?
@@ -41,13 +37,5 @@ class AdminCanViewAllItemsTest < ActionDispatch::IntegrationTest
       assert page.has_content? item2.retired
       assert page.has_content? "Edit"
     end
-
-    #       Then I should see a table with all items (active and inactive)
-    #       And each item should have:
-    #         - A thumbnail of the image
-    #         - Title that links to the item
-    #         - Description
-    #         - Status
-    #         - Actions (Edit)
   end
 end
