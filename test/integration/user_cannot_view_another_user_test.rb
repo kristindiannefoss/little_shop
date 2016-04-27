@@ -7,9 +7,9 @@ class UserCannotViewAnotherUserTest < ActionDispatch::IntegrationTest
     ApplicationController.any_instance.stubs(:current_user).returns(user_1)
 
     visit "/dashboard/2"
-    assert page.has_content? "NOT FOUND"
+    assert page.has_content? "404"
     visit "/user/2"
-    assert page.has_content? "NOT FOUND"
+    assert page.has_content? "404"
     # I cannot view the administrator screens or use admin functionality
     # I cannot make myself an admin
   end

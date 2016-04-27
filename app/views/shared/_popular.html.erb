@@ -9,7 +9,8 @@
 				 <%= content_tag :h4, item.name %>
 				 <%= content_tag :p, item.description %>
          <%= content_tag :p, number_to_currency(item.price) %><br />
-				 <%= link_to "Add to Cart", cart_items_path(item), class:"morebtn cartbtn" %>
+				 <%= render partial: "shared/cartbutton", locals: {item:item} %>
+				 <%# link_to "Add to Cart", cart_items_path(item_id: item.id), class:"morebtn cartbtn", method: :post %>
 			 </div>
        <% end %>
 	 </div>

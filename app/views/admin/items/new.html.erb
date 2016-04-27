@@ -7,7 +7,7 @@
       <%= form_for @item, url:{:controller=>'admin/items', :action=>'create'} do |f| %>
         <p><%= f.text_field :name, placeholder: "Name" %></p>
         <p><%= f.text_field :description, placeholder: "Description" %></p>
-        <p><%= f.text_field :image_url, placeholder: "Image Url" %></p>
+        <p><%= f.file_field :avatar %></p>
         <p><%= f.number_field :price, step: "any", placeholder: "Price" %></p>
         <p><%= f.number_field :category_id, placeholder: "Category ID" %></p>
 
