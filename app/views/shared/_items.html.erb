@@ -2,7 +2,11 @@
   <% items.each do |item| %>
     <%= link_to item_path(item) do %>
     <div class="bike">
+      <% if item.avatar.url %>
+        <%= image_tag item.avatar.url(:square) %>
+      <% else %>
       <%= image_tag item.image_url, class:"image-icon-smaller" %>
+      <% end %>
       <div class="bike-cost">
         <div class="bike-mdl">
           <h4>
