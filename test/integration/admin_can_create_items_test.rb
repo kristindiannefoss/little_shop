@@ -5,6 +5,9 @@ class AdminCanCreateItemsTest < ActionDispatch::IntegrationTest
     admin = User.create(first_name: "Kris",
     last_name: "Foss",
     email: "kris.foss@gmail.com",
+    city: "Denver",
+    state: "CO",
+    zipcode: "80123",
     password: "password",
     role: 1)
 
