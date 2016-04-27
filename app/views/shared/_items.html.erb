@@ -12,7 +12,7 @@
         </div>
        <div class="bike-cart">
          <% if item.retired? %>
-            <%= link_to "Item Retired", "#", class:"buy" %>
+            <%= link_to "Item Retired", "", class:"buy" %>
           <% else %>
             <%= render partial: "shared/cartbutton", locals: {item:item} %>
           <% end %>

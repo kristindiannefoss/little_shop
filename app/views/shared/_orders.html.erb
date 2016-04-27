@@ -1,7 +1,5 @@
-<% if orders %>
-<ul>
-  <% orders.each do |order| %>
-      <li>Order number: <%= order.id %> - <%= link_to "View Order Details", order_path(order_id: order.id) %></li>
-  <% end %>
-</ul>
-<% end %>
+  <ul>
+    <% orders.each do |order| %>
+    <li>Order number : <%= order.id %> - <%= link_to "View Order Details", order_path(order_id: order.id) %></li>
+    <% end %>
+  </ul>
