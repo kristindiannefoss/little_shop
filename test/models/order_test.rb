@@ -9,7 +9,7 @@ class OrderTest < ActiveSupport::TestCase
     date = Date.new(2016, 04, 26)
     order = Order.create(user_id: user.id, status: "ordered", created_at: date)
     expected = "Tuesday, Apr 26, 2016"
-    assert_equal expected, order.create_time
+    assert_equal expected, Order.format_time(order.created_at)
   end
 
   def test_update_time_formats_time_create
