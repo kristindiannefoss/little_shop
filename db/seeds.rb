@@ -15,7 +15,6 @@ Category.create([{ name: "meats" },
   Item.create(
     name: Faker::Commerce.product_name,
     description: Faker::Hipster.paragraph,
-    image_url: Faker::Placeholdit.image("200x200"),
     price: Faker::Commerce.price,
     category_id: Category.all.sample.id,
     retired: false)

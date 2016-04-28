@@ -27,7 +27,6 @@ class AdminCanEditItemsTest < ActionDispatch::IntegrationTest
 
     fill_in "Name", with: "Bronto Burgers"
     fill_in "Description", with: "Yum, meaty"
-    fill_in "Image Url", with: "sample"
     click_on "Update Item"
 
     assert page.has_content?("Bronto Burgers")
