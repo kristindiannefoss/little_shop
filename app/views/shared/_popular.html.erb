@@ -5,7 +5,8 @@
      <div class="categorie-grids">
      <% sample.each do |item| %>
 			 <div class="col-md-4">
-         <%= image_tag item.image_url, class:"image-icon" %>
+				 <%= render partial: "shared/imagesmall", locals: { item:item } %>
+         <%# image_tag item.image_url, class:"image-icon" %>
 				 <%= content_tag :h4, item.name %>
 				 <%= content_tag :p, item.description %>
          <%= content_tag :p, number_to_currency(item.price) %><br />
