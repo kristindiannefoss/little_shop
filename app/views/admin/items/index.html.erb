@@ -11,26 +11,22 @@
           <th>Description</th>
           <th>Image</th>
           <th>Price</th>
-          <th width=10%>Is Retired?</th>
+          <th width=10%>Retired?</th>
           <th>Action</th>
         </tr>
         <% @items.each do |item| %>
-        <tr>
-          <div class="item<%= item.id %>">
-            <td>
-              <%= link_to item.name, item_path(item) %></td>
-              <td><%= item.description %></td>
-              <td><%= image_tag item.avatar.url(:square) %></td>
-              <td><%= number_to_currency(item.price) %></td>
-              <td><%= item.retired %></td>
-              <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
-            </tr>
-          </div>
-          <% end %>
-          <tr>
-
+        <tr class="item<%= item.id %>">
+            <td"><%= link_to item.name, item_path(item) %></td>
+            <td><%= item.description %></td>
+            <td><%= image_tag item.avatar.url(:square) %></td>
+            <td><%= number_to_currency(item.price) %></td>
+            <td><%= item.retired %></td>
+            <td><%= link_to "Edit", edit_admin_item_path(item) %></td>
           </tr>
-        </table>
-      </div>
+        <% end %>
+        <tr>
+        </tr>
+      </table>
     </div>
   </div>
+</div>
