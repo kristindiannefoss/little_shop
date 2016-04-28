@@ -23,7 +23,7 @@ class UserCanViewPastOrdersItemsTest < ActionDispatch::IntegrationTest
     assert page.has_content?(OrderItem.first.subtotal)
     assert page.has_content?("completed")
     assert page.has_content?(order.total_price)
-    assert page.has_content?(order.create_time)
+    assert page.has_content?(Order.format_time(order.created_at))
     assert page.has_content?("Order Status: #{order.status}")
     assert page.has_content?("#{order.update_time}")
   end

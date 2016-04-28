@@ -5,7 +5,7 @@
 				 <div class="single-page row">
 			      <div class="product-head">
 						  <%= link_to "All Items", items_path %> <span>::</span>
-              <%= link_to item.category.name %> <span>::</span>
+              <%= link_to item.category.name, "/#{item.category.name}" %> <span>::</span>
               <%= item.name %>
 			      </div>
 
@@ -22,7 +22,6 @@
                <h4></h4>
                <p><%= number_to_currency(item.price) %></p>
                 <div class="btn_form">
-                  <!-- <a href="cart.html">buy now</a> -->
                   <%= render partial: "shared/cartbutton", locals: {item:item} %>
 
                 </div>

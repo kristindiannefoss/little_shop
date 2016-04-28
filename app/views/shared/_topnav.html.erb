@@ -14,6 +14,7 @@
           <li><%= button_to "Logout", logout_path, method: "delete", class:"morebtn" %></li>
           <a class="shop" href="<%= cart_path %>"><%= image_tag "cart.png" %> &nbsp;<%= @cart.count_all %></a>
         <% else %>
+          <li><%= link_to "Shop", items_path, class:"morebtn" %></li>
           <li><%= link_to "Create Account", new_user_path, class:"morebtn" %></li>
           <li><%= link_to "Login", login_path, class:"morebtn" %></li>
           <a class="shop" href="<%= cart_path %>"><%= image_tag "cart.png" %> &nbsp;<%= @cart.count_all %></a>

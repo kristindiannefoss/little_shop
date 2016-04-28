@@ -2373,3 +2373,6 @@ html, body, .container {
 	padding:1em;
 	text-align: center;
 }
+.item-row{
+	height: 50px;
+}

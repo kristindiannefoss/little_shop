@@ -1,12 +1,11 @@
 class Order < ActiveRecord::Base
-
   belongs_to :user
   has_many :order_items
   has_many :items, through: :order_items
   validates :user_id, presence: true
 
-  def create_time
-    created_at.strftime("%A, %b %d, %Y")
+  def self.format_time(time)
+    time.strftime("%A, %b %d, %Y")
   end
 
   def update_time

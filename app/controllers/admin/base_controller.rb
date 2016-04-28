@@ -4,5 +4,4 @@ class Admin::BaseController < ApplicationController
   def require_admin
     redirect_to "/errors/not_found.html" unless current_admin?
   end
-
 end
