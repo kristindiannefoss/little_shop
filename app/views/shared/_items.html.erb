@@ -1,6 +1,6 @@
 <% all_items.each_slice(4).to_a.each do |items| %>
   <% items.each do |item| %>
-    <%= link_to item_path(item) do %>
+    <%= link_to "items/:id" do %>
     <div class="bike">
       <%= render partial: "shared/imagesquare", locals: { item:item } %>
       <div class="bike-cost">

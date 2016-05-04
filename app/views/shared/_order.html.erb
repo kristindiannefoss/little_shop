@@ -24,7 +24,7 @@
   <% order_items.each do |order_item| %>
   <tr>
     <td>
-      <%= link_to order_item.item.name, item_path(order_item.item) %>
+      <%= link_to order_item.item.name, "items/:id" %>
     </td>
     <td>
       <%= order_item.quantity %>
